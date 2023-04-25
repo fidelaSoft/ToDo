@@ -23,9 +23,16 @@ class ListTaskDataBase:
         self.connection.commit()
 
     # Delete Task
-    def deleteTask(self):
-        pass
+    def deleteTask(self, id):
+        self.cursor.execute("DELETE FROM task WHERE id = {0} ".format(id))
+        self.connection.commit()
 
     # UpdateTask
-    def updateTask(self):
-        pass
+    def updateTask(self, task: Task):
+        q = f"UPDATE task SET title = '{task.title}', description = '{task.description}', responsible = '{task.responsible}', state = '{task.state}' WHERE id = {task.id}"
+        self.cursor.execute(q)
+        self.connection.commit()
+
+    # Close DB
+    def closeDB(self):
+        self.connection.close()
