@@ -7,7 +7,7 @@ class ListTaskDataBase:
     def __init__(self):
         self.connection = psycopg2.connect(host="localhost", database="lisTask", user="postgres",
                                            port="5432",
-                                           password="lucas3030")
+                                           password="colocar password")
         self.cursor = self.connection.cursor()
 
     # All TASK
