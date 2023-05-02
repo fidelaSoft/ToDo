@@ -1,0 +1,8 @@
+CREATE DATABASE listTask
+
+CREATE TABLE task(id serial primary key, 
+				   title VARCHAR(60), 
+				   description text, 
+				   responsible text,
+				   state text 
+);
