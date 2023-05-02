@@ -1,4 +1,46 @@
 {% extends "index.html" %}
 {%block content%}
 <h1>Listado de tareas</h1>
+
+   <div class="row">
+
+     <table class="default">
+
+       <tr>
+
+           <th> Id </th>
+
+         <th> Titulo </th>
+
+         <th>Descripción</th>
+
+         <th>Responsable</th>
+
+         <th>Estado</th>
+
+       </tr>
+{% for task in tasks %}
+       <tr>
+
+         <td>{{task[0]}}</td>
+
+         <td>{{task[1]}}</td>
+
+         <td>{{task[2]}}</td>
+
+         <td>{{task[3]}}</td>
+
+        <td>{{task[4]}}</td>
+
+       </tr>
+{% endfor %}
+
+
+
+     </table>
+
+
+   </div>
+
+
 {%endblock%}
