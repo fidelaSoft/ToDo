@@ -3,23 +3,31 @@
 
 
 <div class="card" style="width: 18rem; margin-top: 10%;margin-left: 530px;">
-  <div class="card-body">
-    <h5 class="card-title">New Task</h5>
-      <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Title</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Title">
-      </div>
-      <div class="mb-4">
-          <label for="exampleFormControlInput1" class="form-label">Responsible</label>
-          <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="Responsible">
-      </div>
-      <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-  </div>
-</div>
 
+    <form action="/new/insertTask" method="POST">
+        <div class="card-body">
+            <h5 class="card-title">New Task</h5>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" placeholder="Title" required>
+            </div>
+            <div class="mb-4">
+                <label for="responsible" class="form-label">Responsible</label>
+                <input type="text" class="form-control" name="responsible" placeholder="Responsible" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" name="description" rows="3" required></textarea>
+            </div>
+
+            <input name="state" id="state" type="hidden" value="{{state}}" required>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary" style="padding: 8px 75px 8px 75px">Send</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 
 {%endblock%}

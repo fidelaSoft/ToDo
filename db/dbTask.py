@@ -1,13 +1,10 @@
 import psycopg2
-
 from model import Task
 
 
 class ListTaskDataBase:
     def __init__(self):
-        self.connection = psycopg2.connect(host="localhost", database="lisTask", user="postgres",
-                                           port="5432",
-                                           password="colocar password")
+        self.connection = psycopg2.connect(host="ep-polished-band-986724.us-east-2.aws.neon.tech", database="ToDo", user="Lucas-30c", password="ZToIlGPNE7v5")
         self.cursor = self.connection.cursor()
 
     # All TASK
