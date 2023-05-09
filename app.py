@@ -3,8 +3,9 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 from db.dbTask import ListTaskDataBase
 from model.Task import Task
 
-app = Flask(__name__)
 
+app = Flask(__name__)
+db = ListTaskDataBase
 
 
 @app.route("/")
@@ -35,7 +36,8 @@ def saveInsertTask():
 
 @app.route("/all")
 def all_task():
-    return render_template("all_tasks.html")
+    tasks= db.getAllTask()
+    return render_template("all_tasks.html", tasks= tasks)
 
 
 app.run(debug=True)
