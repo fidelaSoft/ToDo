@@ -4,20 +4,20 @@
 
 <div class="card" style="width: 18rem; margin-top: 10%;margin-left: 530px;">
 
-    <form action="/new/insertTask" id="form" method="POST">
+    <form action="/new/insertTask" method="POST">
         <div class="card-body">
             <h5 class="card-title">New Task</h5>
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" placeholder="Title" required>
+                <input type="text" class="form-control" name="title" placeholder="Title" required>
             </div>
             <div class="mb-4">
                 <label for="responsible" class="form-label">Responsible</label>
-                <input type="text" class="form-control" id="responsible" placeholder="Responsible" required>
+                <input type="text" class="form-control" name="responsible" placeholder="Responsible" required>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" rows="3" required></textarea>
+                <textarea class="form-control" name="description" rows="3" required></textarea>
             </div>
 
             <input name="state" id="state" type="hidden" value="{{state}}" required>

@@ -22,10 +22,10 @@ def new_task():
 def saveInsertTask():
     db = ListTaskDataBase()
     if request.method == 'POST':
-        state = 'En Proceso'
+        state = 'Pendiente'
 
-        task = Task(title=request.form.get("title"), description=request.form.get("description"),
-                    responsible=request.form.get("responsible"), state=state)
+        task = Task(title=request.form["title"], description=request.form["description"],
+                    responsible=request.form["responsible"], state=state)
 
         db.insertTask(task=task)
         # flash(' Tarea Registrada.', 'success')
