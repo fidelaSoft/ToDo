@@ -1,7 +1,8 @@
 from flask import Flask, render_template
+from db.dbTask import ListTaskDataBase
 
 app = Flask(__name__)
-
+db = ListTaskDataBase
 
 @app.route("/")
 def home():
@@ -13,6 +14,7 @@ def new_task():
 
 @app.route("/all")
 def all_task():
-    return render_template("all_tasks.html")
+    tasks= db.getAllTask()
+    return render_template("all_tasks.html", tasks= tasks)
 
 app.run(debug=True)
