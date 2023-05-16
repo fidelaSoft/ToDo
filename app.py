@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 from db.dbTask import ListTaskDataBase
 from model.Task import Task
 
-
 app = Flask(__name__)
 db = ListTaskDataBase
 
@@ -41,11 +40,6 @@ def all_task():
     return render_template("all_tasks.html", tasks=tasks)
 
 
-
-
-
-
-
 # Change Task State to "En Proceso"
 @app.route('/cambiar_proceso/<id>', methods=['POST'])
 def cambiar_proceso():
@@ -55,7 +49,6 @@ def cambiar_proceso():
     return render_template("all_tasks.html")
 
 
-
 # Change Task State to "Finalizado"
 @app.route('/cambiar_terminado/<id>', methods=['POST'])
 def cambiar_terminado():
@@ -63,9 +56,6 @@ def cambiar_terminado():
     task_id = request.form['id']
     db.change_state_finalizado(task_id)
     return render_template("all_tasks.html")
-
-
-
 
 
 app.run(debug=True)

@@ -6,9 +6,3 @@ class Task:
         self.description = description
         self.responsible = responsible
         self.state = state
-
-    # def change_state_to_proceso(self):
-    #     self.state = "En Proceso"
-    #
-    # def change_state_to_terminado(self):
-    #     self.state = "Finalizado"

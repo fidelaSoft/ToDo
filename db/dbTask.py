@@ -33,14 +33,6 @@ class ListTaskDataBase:
 
 
 
-
-
-
-
-
-
-
-
     # Change Task State to "En Proceso"
     def change_state_proceso(self, id):
         SQLupdate = f"UPDATE task SET state = 'En Proceso' WHERE id = {id}"
@@ -52,12 +44,6 @@ class ListTaskDataBase:
         SQLupdate = f"UPDATE task SET state = 'Finalizado' WHERE id = {id}"
         self.cursor.execute(SQLupdate)
         self.connection.commit()
-
-
-
-
-
-
 
     # Close DB
     def closeDB(self):
