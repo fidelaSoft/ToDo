@@ -42,20 +42,21 @@ def all_task():
 
 # Change Task State to "En Proceso"
 @app.route('/cambiar_proceso/<id>', methods=['POST'])
-def cambiar_proceso():
+def cambiar_proceso(id):
     db = ListTaskDataBase()
-    task_id = request.form['id']
-    db.change_state_proceso(task_id)
-    return render_template("all_tasks.html")
+    db.change_state_proceso(id)
+    tasks= db.getAllTask()
+    return render_template("all_tasks.html", tasks= tasks)
 
 
 # Change Task State to "Finalizado"
 @app.route('/cambiar_terminado/<id>', methods=['POST'])
-def cambiar_terminado():
+def cambiar_terminado(id):
     db = ListTaskDataBase()
-    task_id = request.form['id']
-    db.change_state_finalizado(task_id)
-    return render_template("all_tasks.html")
+    db.change_state_finalizado(id)
+    tasks= db.getAllTask()
+    return render_template("all_tasks.html", tasks= tasks)
+
 
 
 app.run(debug=True)
