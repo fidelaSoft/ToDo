@@ -1,5 +1,6 @@
 {% extends "index.html" %}
 {%block content%}
+
 <h1>Listado de tareas</h1>
 
    <div class="row">
@@ -8,31 +9,36 @@
 
        <tr>
 
-           <th> Id </th>
+         <th>Pendiente</th>
 
-         <th> Titulo </th>
+         <th>En Proceso</th>
 
-         <th>Descripción</th>
-
-         <th>Responsable</th>
-
-         <th>Estado</th>
+         <th>Finalizado</th>
 
        </tr>
 {% for task in tasks %}
+
        <tr>
+        <td>
+            {%if task[4] == 'Pendiente'%}
+            {%include "card.html"%}
+            {%endif%}
+        </td>
 
-         <td>{{task[0]}}</td>
+        <td>
+            {%if task[4] == 'En Proceso'%}
+            {%include "card.html"%}
+            {%endif%}
+        </td>
 
-         <td>{{task[1]}}</td>
-
-         <td>{{task[2]}}</td>
-
-         <td>{{task[3]}}</td>
-
-        <td>{{task[4]}}</td>
+        <td>
+            {%if task[4] == 'Finalizado'%}
+            {%include "card.html"%}
+            {%endif%}
+        </td>
 
        </tr>
+
 {% endfor %}
 
 
@@ -41,6 +47,8 @@
 
 
    </div>
+
+
 
 
 {%endblock%}
