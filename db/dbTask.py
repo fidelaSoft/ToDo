@@ -32,6 +32,11 @@ class ListTaskDataBase:
         self.connection.commit()
 
 
+    # Change Task State to "En Pendiente"
+    def change_state_pendiente(self, id):
+        SQLupdate = f"UPDATE task SET state = 'Pendiente' WHERE id = {id}"
+        self.cursor.execute(SQLupdate)
+        self.connection.commit()
 
     # Change Task State to "En Proceso"
     def change_state_proceso(self, id):
