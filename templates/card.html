@@ -1,0 +1,18 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">task[1]</h5>
+    <h6 class="card-subtitle mb-2 text-muted">task[2]</h6>
+    <p class="card-text">task[3]</p>
+    {%if task[4]== "Pendiente"%}
+    <a href="/cambiar_proceso/{{task[0]}}" class="card-link">Ir a en Proceso</a>
+    {%endif%}
+    {%if task[4]== "En Proceso"%}
+    <a href="#" class="card-link">Ir a Pendiente</a>
+    <a href="/cambiar_terminado/{{task[0]}}" class="card-link">Ir a Finalizado</a>
+    {%endif%}
+    {%if task[4]== "Finalizado"%}
+    <a href="/cambiar_proceso/{{task[0]}}" class="card-link">Ir a en Proceso</a>
+    {%endif%}
+
+  </div>
+</div>
