@@ -36,6 +36,7 @@ def saveInsertTask():
 
 @app.route("/all")
 def all_task():
+    db = ListTaskDataBase()
     tasks= db.getAllTask()
     return render_template("all_tasks.html", tasks= tasks)
 
