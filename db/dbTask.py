@@ -4,7 +4,8 @@ from model import Task
 
 class ListTaskDataBase:
     def __init__(self):
-        self.connection = psycopg2.connect(host="ep-polished-band-986724.us-east-2.aws.neon.tech", database="ToDo", user="Lucas-30c", password="ZToIlGPNE7v5")
+        self.connection = psycopg2.connect(host="ep-polished-band-986724.us-east-2.aws.neon.tech", database="ToDo",
+                                           user="Lucas-30c", password="ZToIlGPNE7v5")
         self.cursor = self.connection.cursor()
 
     # All TASK
@@ -30,11 +31,31 @@ class ListTaskDataBase:
         self.cursor.execute(q)
         self.connection.commit()
 
-    # Change State Task
-    def changeStateTask(self, task: Task):
-        q = f"UPDATE task SET state = '{task.state}' WHERE id = {task.id}"
-        self.cursor.execute(q)
+
+
+
+
+
+
+
+
+
+
+    # Change Task State to "En Proceso"
+    def change_state_proceso(self, id):
+        SQLupdate = f"UPDATE task SET state = 'En Proceso' WHERE id = {id}"
+        self.cursor.execute(SQLupdate)
         self.connection.commit()
+
+    # Change Task State to "Finalizado"
+    def change_state_finalizado(self, id):
+        SQLupdate = f"UPDATE task SET state = 'Finalizado' WHERE id = {id}"
+        self.cursor.execute(SQLupdate)
+        self.connection.commit()
+
+
+
+
 
 
 
