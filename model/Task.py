@@ -6,4 +6,3 @@ class Task:
         self.description = description
         self.responsible = responsible
         self.state = state
-
