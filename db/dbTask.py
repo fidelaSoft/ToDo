@@ -30,6 +30,14 @@ class ListTaskDataBase:
         self.cursor.execute(q)
         self.connection.commit()
 
+    # Change State Task
+    def changeStateTask(self, task: Task):
+        q = f"UPDATE task SET state = '{task.state}' WHERE id = {task.id}"
+        self.cursor.execute(q)
+        self.connection.commit()
+
+
+
     # Close DB
     def closeDB(self):
         self.connection.close()

@@ -7,3 +7,8 @@ class Task:
         self.responsible = responsible
         self.state = state
 
+    def change_state_to_proceso(self):
+        self.state = "PROCESO"
+
+    def change_state_to_terminado(self):
+        self.state = "TERMINADO"
