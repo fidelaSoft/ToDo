@@ -1,4 +1,4 @@
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem; {%if task[4]== 'Pendiente'%}background-color: red;{%elif task[4]== 'En Proceso'%}background-color: yellow;{%elif task[4]== 'Finalizado'%}background-color: green;{%endif%}">
   <div class="card-body">
     <h5 class="card-title">{{task[1]}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{task[2]}}</h6>
