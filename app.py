@@ -40,8 +40,17 @@ def all_task():
     return render_template("all_tasks.html", tasks=tasks)
 
 
+# Change Task State to "En Pendiente"
+@app.route('/cambiar_pendiente/<id>', methods=['GET'])
+def cambiar_pendiente(id):
+    db = ListTaskDataBase()
+    db.change_state_pendiente(id)
+    tasks= db.getAllTask()
+    return render_template("all_tasks.html", tasks= tasks)
+
+
 # Change Task State to "En Proceso"
-@app.route('/cambiar_proceso/<id>', methods=['POST'])
+@app.route('/cambiar_proceso/<id>', methods=['GET'])
 def cambiar_proceso(id):
     db = ListTaskDataBase()
     db.change_state_proceso(id)
@@ -50,7 +59,7 @@ def cambiar_proceso(id):
 
 
 # Change Task State to "Finalizado"
-@app.route('/cambiar_terminado/<id>', methods=['POST'])
+@app.route('/cambiar_terminado/<id>', methods=['GET'])
 def cambiar_terminado(id):
     db = ListTaskDataBase()
     db.change_state_finalizado(id)
